@@ -33,5 +33,9 @@ class UserSeeder extends Seeder
         $usr->address   = 'Aveniu Siempre Viva';
         $usr->password  = bcrypt('admin');
         $usr->save();
+
+
+        // Factory
+        factory(User::class, 10)->create();
     }
 }
