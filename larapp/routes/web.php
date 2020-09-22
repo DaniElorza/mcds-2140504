@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('helloworld', function () {
+    return "<h1>Hello World<h1>";
+});
+
+Route::get('users', function () {
+    dd(App\User::all());
+});
+
+Route::get('user/{id}', function ($id) {
+    dd(App\User::find($id));
+});
+
+Route::get('records', function () {
+    foreach (App\User::all()->take(10) as $user) {
+        $years = Carbon::createFromDate($user->birthdate)->diff()->format('%y years old');
+        $since = Carbon::parse($user->created_ad);
+        $rs[]  = $user->name." - ".$years." - created ".$since->diffForHumans();
+    }
+    return view('records', ['rs' => $rs]);
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
