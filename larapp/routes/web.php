@@ -39,6 +39,13 @@ Route::get('records', function () {
     return view('records', ['rs' => $rs]);
 });
 
+Route::get('/examples', function () {
+    $users = App\User::all()->take(8);
+    $categories =App\Category::all()->take(1);
+    $games = App\Game::all();
+    return view('examples', ['users'=>$users,'categories'=>$categories,'games'=>$games]);
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
