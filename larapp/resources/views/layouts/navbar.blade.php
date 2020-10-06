@@ -15,20 +15,39 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="">EN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">ES</a>
+                @php $locale = session()->get('locale'); @endphp
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        @switch($locale)
+                            @case('en')
+                                <img src="{{asset('imgs/en.png')}}" width="20px"> English
+                                @break
+                            @case('es')
+                                <img src="{{asset('imgs/es.png')}}" width="20px"> Español
+                                @break
+                            @default
+                                <img src="{{asset('imgs/es.png')}}" width="20px"> Español
+                        @endswitch
+                        <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('locale/en') }}">
+                            <img src="{{asset('imgs/en.png')}}" width="20px"> English
+                        </a>
+                        <a class="dropdown-item" href="{{ url('locale/es') }}">
+                            <img src="{{asset('imgs/es.png')}}" width="20px"> Español
+                        </a>
+                    </div>
                 </li>
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('general.link-login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">@lang('general.link-login')</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('general.link-register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">@lang('general.link-register')</a>
                         </li>
                     @endif
                 @else
@@ -41,7 +60,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                @lang('general.link-close')
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

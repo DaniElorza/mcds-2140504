@@ -1,21 +1,29 @@
 <?php
 return [
-    'link-login'            =>  'Ingresar',
-    'link-register'         =>  'Registrarse',
-    'link-registry'         =>  'Registro',
-    'link-name'             =>  'Nombre',
-    'link-e-Mail Address'   =>  'Correo electrónico',
-    'link-phone'            =>  'Número de Teléfono',
-    'link-birthdate'        =>  'Fecha de nacimiento',
-    'link-gender'           =>  'Género',
-    'link-address'          =>  'Dirección',
-    'link-password'         =>  'Contraseña',
-    'link-confirm password' =>  'Confirmación contraseña',
-    'link-Register'         =>  'Registrarse',
-    'link-login'            =>  'Ingreso',
-    'link-e-Mail Address'   =>  'Correo electrónico',
-    'link-Password'         =>  'Contraseña',
-    'link-Remember Me'      =>  'Recordarme',
-    'link-Login'            =>  'Iniciar sesión',
-    'link-Forgot Your Password?' =>  '¿Olvidó su contraseña?'
+	// Login Page
+    'link-login'     => 'Ingresar',
+    'link-register'  => 'Registrarse',
+    'title-login'    => 'Ingreso de Usuarios',
+    'label-email'    => 'Correo Electrónico',
+    'label-Password' => 'Contraseña',
+    'label-remember' => 'Recordarme',
+    'btn-login'      => 'Ingresar',
+    'link-forgot'	 => 'Olvidó su Contraseña?',
+    // Register Page
+    'title-register'  => 'Registrarse',
+    'label-name'      => 'Nombre Completo',
+    'label-phone'     => 'Número Telefónico',
+    'label-birthdate' => 'Fecha de Nacimiento',
+    'label-gender'    => 'Genero',
+    'select-value'    => 'Seleccione...',
+    'select-female'   => 'Mujer',
+    'select-male'     => 'Hombre',
+    'label-address'   => 'Dirección',
+    'label-confirm'   => 'Confirmar Contraseña',
+    'btn-register'    => 'Registrar',
+    // Reset Password Page
+    'title-reset-password' => 'Restablecer Contraseña',
+    'btn-reset-password'   => 'Enviar Enlace Restablecimiento Contraseña',
+    // NavBar
+    'link-close' => 'Cerrar Sesión',
 ];
