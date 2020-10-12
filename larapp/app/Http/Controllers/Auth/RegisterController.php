@@ -49,15 +49,38 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        if(session()->get('locale') == 'en') {
+            $messages = array(
+                'name.required' => 'The "Name" field is required',
+                'email.required' => 'The "Email" field is required',
+                'phone.required' => 'The "PhoneNumber" field is required',
+                'birthdate.required' => 'The "Birthdate" field is required',
+                'gender.required' => 'The "Gender" field is required',
+                'address.required' => 'The "Address" field is required',
+                'password.required' => 'The "Password" field is required',
+            );
+        }
+        else {
+            $messages = array(
+                'name.required' => 'El campo "Nombre" es requerido',
+                'email.required' => 'El campo "Correo Electrónico" es requerido',
+                'phone.required' => 'El campo "Número Telefónico" es requerido',
+                'birthdate.required' => 'El campo "Fecha de Nacimiento" es requerido',
+                'gender.required' => 'El campo "Género" es requerido',
+                'address.required' => 'El campo "Dirección" es requerido',
+                'password.required' => 'El campo "Contraseña" es requerido',
+            );
+        }
+
         return Validator::make($data, [
-            'name' => ['required', 'string'],
-            'email' => ['required', 'string', 'email', 'unique:users'],
-            'phone' => ['required', 'numeric'],
+            'name'  => ['required'],
+            'email'     => ['required', 'email', 'unique:users'],
+            'phone'     => ['required', 'numeric'],
             'birthdate' => ['required', 'date'],
-            'gender' => ['required'],
-            'address' => ['required', 'string'],
-            'password' => ['required', 'string', 'min:6', 'confirmed']
-        ]);
+            'gender'    => ['required'],
+            'address'   => ['required',],
+            'password'  => ['required', 'min:6', 'confirmed'],
+        ], $messages);
     }
 
     /**

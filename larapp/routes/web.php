@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('helloworld', function () {
+/*Route::get('helloworld', function () {
     return "<h1>Hello World<h1>";
 });
 
@@ -28,7 +28,7 @@ Route::get('users', function () {
 
 Route::get('user/{id}', function ($id) {
     dd(App\User::find($id));
-});
+});*/
 
 Route::get('records', function () {
     foreach (App\User::all()->take(10) as $user) {
@@ -39,14 +39,22 @@ Route::get('records', function () {
     return view('records', ['rs' => $rs]);
 });
 
-Route::get('/examples', function () {
+/*Route::get('/examples', function () {
     $users = App\User::all()->take(8);
     $categories =App\Category::all()->take(1);
     $games = App\Game::all();
     return view('examples', ['users'=>$users,'categories'=>$categories,'games'=>$games]);
-});
+});*/
 
 Auth::routes();
+
+//Resources
+Route::resources([
+    'users' => 'UserController',
+    //'categories' => 'CategoryController',
+    //'games' => 'GameController',
+]);
+
 
 // Middleware
 Route::get('locale/{locale}', 'LocaleController@index');

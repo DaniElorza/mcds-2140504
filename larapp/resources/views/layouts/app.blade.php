@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="{{ asset('css/fontawesome-all.min.css') }}" href="stylesheet">
 </head>
 <body>
     @include('layouts.navbar')

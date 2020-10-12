@@ -5,13 +5,13 @@ return [
     'link-register'  => 'Register',
     'title-login'    => 'Form Login',
     'label-email'    => 'E-Mail Address',
-    'label-Password' => 'Password',
+    'label-password' => 'Password',
     'label-remember' => 'Remember Me',
     'btn-login'      => 'Login',
     'link-forgot'	 => 'Forgot Your Password?',
     // Register Page
     'title-register'  => 'Register',
-    'label-name'      => 'Name',
+    'label-name'      => 'FullName',
     'label-phone'     => 'PhoneNumber',
     'label-birthdate' => 'BirthDate',
     'label-gender'    => 'Gender',
@@ -25,5 +25,8 @@ return [
     'title-reset-password' => 'Reset Password',
     'btn-reset-password'   => 'Send Password Reset Link',
     // NavBar
+    'link-dashboard'  => 'Dashboard',
     'link-close' => 'Logout',
+    // Dashboard
+    'title-dashboard' => 'Dashboard',
 ];
