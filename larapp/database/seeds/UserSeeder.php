@@ -31,11 +31,11 @@ class UserSeeder extends Seeder
         $usr->birthdate = '1969-09-10';
         $usr->gender    = 'Male';
         $usr->address   = 'Aveniu Siempre Viva';
-        $usr->password  = bcrypt('admin');
+        $usr->password  = bcrypt('customer');
         $usr->save();
 
 
         // Factory
-        factory(User::class, 10)->create();
+        factory(User::class, 2)->create();
     }
 }

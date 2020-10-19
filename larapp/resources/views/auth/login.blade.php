@@ -1,19 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
-                <img src="{{ asset('storage/images/bg.svg') }}" width="500px" class="m-md-2 img-top-card">
+                <img src="{{ asset('imgs/bg-login.svg') }}" width="300px" class="my-2 img-top-card">
                 <div class="card-header text-uppercase text-center">
                     <h5>
                         <i class="fa fa-user-lock"></i>
-                        @lang('general.link-login')
+                        @lang('general.title-login')
                     </h5>
                 </div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

@@ -33,5 +33,20 @@
 }
 
 h1 {
-	color: #133b5c;
+	color: #3f505e;
+}
+
+
+// Pagination
+ul.pagination {
+    justify-content: center;
+    //border: 2px solid red;
+    .page-item.active .page-link {
+        background-color: #133b5c;
+        border-color: #798c9c;
+        color: #fff;
+    }
+    .page-item .page-link {
+        color: #133b5c;
+    }
 }

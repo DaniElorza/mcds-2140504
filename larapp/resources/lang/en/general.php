@@ -11,7 +11,7 @@ return [
     'link-forgot'	 => 'Forgot Your Password?',
     // Register Page
     'title-register'  => 'Register',
-    'label-name'      => 'FullName',
+    'label-name'  => 'Name',
     'label-phone'     => 'PhoneNumber',
     'label-birthdate' => 'BirthDate',
     'label-gender'    => 'Gender',
@@ -25,8 +25,10 @@ return [
     'title-reset-password' => 'Reset Password',
     'btn-reset-password'   => 'Send Password Reset Link',
     // NavBar
-    'link-dashboard'  => 'Dashboard',
-    'link-close' => 'Logout',
+    'link-dashboard' => 'Dashboard',
+    'link-close'     => 'Logout',
     // Dashboard
     'title-dashboard' => 'Dashboard',
+    //Adicionar
+    'btn-save'  => 'Save'
 ];

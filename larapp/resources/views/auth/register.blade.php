@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card">
-                <img src="{{ asset('storage/images/bg.svg') }}" width="500px" class="m-md-2 img-top-card">
+                <img src="{{ asset('imgs/bg-register.svg') }}" width="300px" class="my-2 img-top-card">
                 <div class="card-header text-uppercase text-center">
                     <h5>
                         <i class="fa fa-user-edit"></i>
@@ -14,27 +13,27 @@
                     </h5>
                 </div>
 
-            <!-- <div class="row mt-4">
-                <div class="col-md-8 offset-md-2">
-                    @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                          @foreach ($errors->all() as $message)
-                                <li>{{ $message }}</li>
-                        @endforeach
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                    @endif
-                </div>
-            </div> -->
+                {{-- <div class="row mt-4">
+                    <div class="col-md-8 offset-md-2">
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                              @foreach ($errors->all() as $message)
+                                    <li>{{ $message }}</li>
+                            @endforeach
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                        @endif
+                    </div>
+                </div> --}}
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="@lang('general.label-name')" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="@lang('general.label-name')" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

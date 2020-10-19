@@ -11,10 +11,10 @@ return [
     'link-forgot'	 => 'Olvidó su Contraseña?',
     // Register Page
     'title-register'  => 'Registrarse',
-    'label-name'      => 'Nombre Completo',
+    'label-name'  => 'Nombre Completo',
     'label-phone'     => 'Número Telefónico',
     'label-birthdate' => 'Fecha de Nacimiento',
-    'label-gender'    => 'Género',
+    'label-gender'    => 'Genero',
     'select-value'    => 'Seleccione...',
     'select-female'   => 'Mujer',
     'select-male'     => 'Hombre',
@@ -25,8 +25,10 @@ return [
     'title-reset-password' => 'Restablecer Contraseña',
     'btn-reset-password'   => 'Enviar Enlace Restablecimiento Contraseña',
     // NavBar
-    'link-dashboard'   => 'Escritorio',
-    'link-close' => 'Cerrar Sesión',
-    //Dashboard
+    'link-dashboard' => 'Escritorio',
+    'link-close'     => 'Cerrar Sesión',
+    // Dashboard
     'title-dashboard' => 'Escritorio',
+    //Adicionar
+    'btn-save'  => 'Guardar'
 ];
