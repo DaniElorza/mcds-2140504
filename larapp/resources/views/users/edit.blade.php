@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h1>
-                <i class="fa fa-plus"></i>
-                Adicionar Usuarios
+                <i class="fa fa-pencil"></i>
+                Editar Usuario
             </h1>
             <hr>
 
@@ -24,8 +24,8 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        <i class="fa fa-plus"></i>
-                        Adicionar Usuarios
+                        <i class="fa fa-pen"></i>
+                        Editar Usuario
                     </li>
                 </ol>
             </nav>
@@ -41,12 +41,15 @@
                 </div>
             @endif-->
 
-            <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url('users/'.$user->id) }}" enctype="multipart/form-data">
                         @csrf
+
+                        @method('PUT')
+                        <input type="hidden" name="id" value="{{ $user->id }}">
 
                         <div class="form-group">
                                 <input id="name" type="text" class="form-control @error('name')
-                                    is-invalid @enderror" name="name" value="{{ old('name') }}"
+                                    is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}"
                                     placeholder="@lang('general.label-name')" autofocus>
 
                                 @error('name')
@@ -58,7 +61,7 @@
 
                         <div class="form-group">
                                 <input id="email" type="email" class="form-control @error('email')
-                                    is-invalid @enderror" name="email" value="{{ old('email') }}"
+                                    is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}"
                                     placeholder="@lang('general.label-email')">
 
                                 @error('email')
@@ -70,8 +73,8 @@
 
                         <div class="form-group">
                                 <input id="phone" type="number" class="form-control @error('phone')
-                                    is-invalid @enderror" name="phone" value="{{ old('phone') }}"
-                                    placeholder="@lang('general.label-phone')">
+                                    is-invalid @enderror" name="phone" value="{{ old('phone',
+                                    $user->phone) }}" placeholder="@lang('general.label-phone')">
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -82,8 +85,8 @@
 
                         <div class="form-group">
                                 <input id="birthdate" type="date" class="form-control @error('birthdate')
-                                    is-invalid @enderror" name="birthdate" value="{{ old('birthdate') }}"
-                                    placeholder="@lang('general.label-birthdate')">
+                                    is-invalid @enderror" name="birthdate" value="{{ old('birthdate',
+                                    $user->birthdate) }}" placeholder="@lang('general.label-birthdate')">
 
                                 @error('birthdate')
                                     <span class="invalid-feedback" role="alert">
@@ -96,10 +99,10 @@
                                 <select name="gender" id="gender" class="form-control @error('gender')
                                     is-invalid @enderror">
                                     <option value="">Seleccione el Género...</option>
-                                    <option value="Female" @if(old('gender') == 'Female') selected @endif>
-                                        @lang('general.select-female')</option>
-                                    <option value="Male" @if(old('gender') == 'Male') selected @endif>
-                                        @lang('general.select-male')</option>
+                                    <option value="Female" @if(old('gender', $user->gender) == 'Female')
+                                        selected @endif>@lang('general.select-female')</option>
+                                    <option value="Male" @if(old('gender', $user->gender) == 'Male')
+                                        selected @endif>@lang('general.select-male')</option>
                                 </select>
 
                                 @error('gender')
@@ -111,8 +114,8 @@
 
                         <div class="form-group">
                                 <input id="address" type="text" class="form-control @error('address')
-                                    is-invalid @enderror" name="address" value="{{ old('address') }}"
-                                    placeholder="@lang('general.label-address')">
+                                    is-invalid @enderror" name="address" value="{{ old('address',
+                                    $user->address) }}" placeholder="@lang('general.label-address')">
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -123,7 +126,7 @@
 
                         <div class="form-group">
                             <div class="text-center my-3">
-                                <img src="{{ asset('imgs/no-photo.png') }}" class="img-thumbnail" id="preview"
+                                <img src="{{ asset($user->photo) }}" class="img-thumbnail" id="preview"
                                     width="120px">
                             </div>
                             <div class="custom-file">
@@ -159,9 +162,26 @@
                         </div>
 
                         <div class="form-group">
+                                <select name="active" id="active" class="form-control @error('active')
+                                    is-invalid @enderror">
+                                    <option value="">Seleccione el Estado...</option>
+                                    <option value="1" @if(old('active', $user->active) == 1)
+                                        selected @endif>Activo</option>
+                                    <option value="0" @if(old('active', $user->active) == 0)
+                                        selected @endif>Inactivo</option>
+                                </select>
+
+                                @error('active')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+
+                        <div class="form-group">
                                 <button type="submit" class="btn btn-larapp btn-block text-uppercase">
-                                    @lang('general.btn-save')
-                                    <i class="fa fa-save"></i>
+                                    Editar
+                                    <i class="fa fa-pen"></i>
                                 </button>
                         </div>
                     </form>

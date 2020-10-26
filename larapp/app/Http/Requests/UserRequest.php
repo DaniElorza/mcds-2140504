@@ -30,22 +30,34 @@ class UserRequest extends FormRequest
             'birthdate' => 'required|date',
             'gender' => 'required',
             'address' => 'required',
-            'photo' => 'required',
+            'photo' => 'required|image|max:1000',
             'password' => 'required|min:6|confirmed',
-
         ];
     }
 
     public function messages() {
         return[
             'name.required' => 'El campo :attribute es obligatorio',
-            'email.required' => 'El campo "Correo Electrónico" es obligatorio'
+            'email.required' => 'El campo :attribute es obligatorio',
+            'phone.numeric.required' => 'El campo :attribute es obligatorio',
+            'phone.date.required' => 'El campo :attribute es obligatorio',
+            'gender.required' => 'El campo :attribute es obligatorio',
+            'address.required' => 'El campo :attribute es obligatorio',
+            'photo.required' => 'El campo :attribute es obligatorio',
+            'password.required' => 'El campo :attribute es obligatorio'
         ];
     }
 
     public function attributes() {
         return [
-            'name' => 'Nombre Completo'
+            'name' => 'Nombre Completo',
+            'email' => 'Correo Electrónico',
+            'phone' => 'Número de teléfono',
+            'birthdate' => 'Fecha de nacimiento',
+            'gender' => 'Género',
+            'address' => 'Dirección',
+            'photo' => 'Foto',
+            'password' => 'Contraseña',
         ];
     }
 }

@@ -50,13 +50,13 @@ Auth::routes();
 
 //Resources
 Route::resources([
-    'users' => 'UserController',
-    //'categories' => 'CategoryController',
-    //'games' => 'GameController',
-]);
+    'users'          => 'UserController',
+    //'categories'   => 'CategoryController',
+    //'games'        => 'GameController',
+]) ;
 
 
-// Middleware
+// Middlewre
 Route::get('locale/{locale}', 'LocaleController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
