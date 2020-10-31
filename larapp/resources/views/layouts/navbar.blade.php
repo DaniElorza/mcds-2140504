@@ -87,6 +87,10 @@
                                 <i class="fa fa-list-alt"></i>
                                  Módulo Categorías
                             </a>
+                            <a class="dropdown-item" href="{{ url('games') }}">
+                                <i class="fa fa-gamepad"></i>
+                                 Módulo Juegos
+                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

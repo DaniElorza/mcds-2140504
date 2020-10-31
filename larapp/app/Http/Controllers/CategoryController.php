@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        //$categories = Category::all();
+        $categories = Category::paginate(10);
+        return view ('categories.index')->with('categories', $categories);
     }
 
     /**
@@ -23,7 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -32,9 +39,22 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        //dd($request->all());
+        $category = new Category;
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->image = $request->image;
+        if($request->hasFile('image')) {
+            $file = time().'.'.$request->image->extension();
+            $request->image->move(public_path('imgs'), $file);
+            $category->image = 'imgs/'.$file;
+        }
+        if ($category->save()) {
+            return redirect('categories')->with('message', 'La categoría: '.$category->name. '
+            fue adicionada con éxito');
+        }
     }
 
     /**
@@ -43,9 +63,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        //dd($category);
+        return view('categories.show')->with('category', $category);
     }
 
     /**
@@ -54,9 +75,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        //dd($category);
+        return view('categories.edit')->with('category', $category);
     }
 
     /**
@@ -66,9 +88,21 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        //dd($request->all());
+        $category->name = $request->name;
+        $category->description = $request->description;
+        if($request->hasFile('image')) {
+            $file = time().'.'.$request->image->extension();
+            $request->image->move(public_path('imgs'), $file);
+            $category->image = 'imgs/'.$file;
+        }
+
+        if ($category->save()) {
+            return redirect('categories')->with('message', 'La categoría: ' .$category->name.
+            ' fue modificada con éxito');
+        }
     }
 
     /**
@@ -77,8 +111,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        if ($category->delete()) {
+            return redirect('categories')->with('message', 'La categoría: ' .$category->name.
+            ' fue eliminada con éxito');
+        }
     }
 }
+
