@@ -30,7 +30,7 @@
                 </ol>
             </nav>
 
-            @if ($errors->any())
+           <!--  @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                   @foreach ($errors->all() as $message)
                         <li>{{ $message }}</li>
@@ -39,15 +39,14 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-            @endif
+            @endif -->
 
             <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
-                    <input class="form-control" id="name" type="text" class="form-control
-                            @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
-                            placeholder="Nombre Categoría" autofocus>
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                        name="name" value="{{ old('name') }}" placeholder="Nombre Categoría" autofocus>
 
                     @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -57,9 +56,9 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea class="form-control" id="description" type="text" rows="3" class="form-control @error('description')
+                    <textarea id="description" type="text" rows="3" class="form-control @error('description')
                         is-invalid @enderror" name="description" value="{{ old('description') }}"
-                        placeholder="Descripción" autofocus></textarea>
+                        placeholder="Descripción"></textarea>
 
                     @error('description')
                         <span class="invalid-feedback" role="alert">
@@ -80,6 +79,7 @@
                             <i class="fa fa-upload"></i>
                             Imagen
                         </label>
+
                         @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

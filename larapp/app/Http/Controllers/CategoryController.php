@@ -45,15 +45,14 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->name;
         $category->description = $request->description;
-        $category->image = $request->image;
         if($request->hasFile('image')) {
             $file = time().'.'.$request->image->extension();
             $request->image->move(public_path('imgs'), $file);
             $category->image = 'imgs/'.$file;
         }
         if ($category->save()) {
-            return redirect('categories')->with('message', 'La categoría: '.$category->name. '
-            fue adicionada con éxito');
+            return redirect('categories')->with('message', 'La categoría: ' .$category->name.
+            ' fue adicionada con éxito');
         }
     }
 

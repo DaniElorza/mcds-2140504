@@ -54,7 +54,7 @@
             $('.btn-delete').click(function(event) {
                 Swal.fire({
                     title: '¿Está seguro?',
-                    text: 'Desea eliminar el usuario?',
+                    text: 'Desea eliminar el registro?',
                     icon: 'error',
                     showCancelButton: true,
                     cancelButtonColor: '#d0211c',

@@ -15,6 +15,7 @@
 				<thead>
 					<tr>
 						<th>Nombre</th>
+                        <th>Descripción</th>
 						<th>Imagen</th>
 						<th>Acciones</th>
 					</tr>
@@ -23,6 +24,7 @@
 					@foreach ($categories as $category)
 						<tr>
 							<td>{{ $category->name }}</td>
+                            <td>{{ $category->description }}</td>
 							<td><img src="{{ asset($category->image) }}" width="36px"></td>
 							<td>
 								<a href="{{ url('categories/'.$category->id) }}" class="btn btn-sm btn-light">

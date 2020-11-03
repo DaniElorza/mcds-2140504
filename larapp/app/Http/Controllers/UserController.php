@@ -57,7 +57,8 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
 
         if ($user->save()) {
-            return redirect('users')->with('message', 'El usuario: ' .$user->name. ' fue adicionado con éxito');
+            return redirect('users')->with('message', 'El usuario: ' .$user->name. '
+            fue adicionado con éxito');
         }
     }
 
@@ -108,7 +109,8 @@ class UserController extends Controller
         }
 
         if ($user->save()) {
-            return redirect('users')->with('message', 'El usuario: ' .$user->name. ' fue modificado con éxito');
+            return redirect('users')->with('message', 'El usuario: ' .$user->name. '
+            fue modificado con éxito');
         }
     }
 

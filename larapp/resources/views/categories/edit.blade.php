@@ -41,15 +41,15 @@
                 </div>
             @endif -->
 
-            <form method="POST" action="{{ url('categories'.$category->id.'/edit') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url('categories/'.$category->id) }}" enctype="multipart/form-data">
                 @csrf
+
                 @method('PUT')
                 <input type="hidden" name="id" value="{{ $category->id }}">
 
                 <div class="form-group">
                     <input class="form-control" id="name" type="text" class="form-control @error('name')
-                    is-invalid @enderror" name="name" value="{{ old('name', $category->name) }}"
-                    placeholder="Nombre Categoría" autofocus>
+                    is-invalid @enderror" name="name" value="{{ old('name', $category->name) }}" autofocus>
 
                     @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -59,9 +59,9 @@
                 </div>
 
                 <div class="form-group">
-                    <input class="form-control" id="description" type="text" rows="3" class="form-control
-                    @error('description') is-invalid @enderror" name="description"
-                    value="{{ old('description', $category->description) }}" placeholder="Descripción">
+                    <input id="description" type="text" class="form-control @error('description')
+                        is-invalid @enderror" name="description" value="{{ old('description',
+                        $category->description) }}" placeholder="description">
 
                     @error('description')
                         <span class="invalid-feedback" role="alert">
