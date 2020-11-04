@@ -48,7 +48,7 @@
                 <input type="hidden" name="id" value="{{ $category->id }}">
 
                 <div class="form-group">
-                    <input class="form-control" id="name" type="text" class="form-control @error('name')
+                    <input id="name" type="text" class="form-control @error('name')
                     is-invalid @enderror" name="name" value="{{ old('name', $category->name) }}" autofocus>
 
                     @error('name')
@@ -59,9 +59,9 @@
                 </div>
 
                 <div class="form-group">
-                    <input id="description" type="text" class="form-control @error('description')
-                        is-invalid @enderror" name="description" value="{{ old('description',
-                        $category->description) }}" placeholder="description">
+                    <textarea id="description" type="text" rows="3" class="form-control @error('description')
+                        is-invalid @enderror" name="description">{{ old('description', $category->description) }}
+                    </textarea>
 
                     @error('description')
                         <span class="invalid-feedback" role="alert">
