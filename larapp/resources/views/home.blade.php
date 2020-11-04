@@ -27,7 +27,7 @@
 
                     <div class="col-md-4 mt-5">
                         <div class="card">
-                            <img src="{{ asset('imgs/bg-categories.svg') }}" width="230px" class="my-2 img-top-card">
+                            <img src="{{ asset('imgs/bg-categories.svg') }}" width="233px" class="my-2 img-top-card">
                             <div class="card-body">
                                 <a href="{{ route('categories.index') }}" class="btn btn-block btn-larapp">
                                     <i class="fas fa-list-alt"></i>
