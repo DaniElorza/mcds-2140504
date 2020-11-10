@@ -123,7 +123,14 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         if ($user->delete()) {
-            return redirect('users')->with('message', 'El usuario: ' .$user->name. ' fue eliminado con éxito');
+            return redirect('users')->with('message', 'El usuario: ' .$user->name. '
+            fue eliminado con éxito');
         }
+    }
+
+    public function pdf() {
+        $users = User::all();
+        $pdf = \PDF::loadView('users.pdf', compact('users'));
+        return $pdf->download('allusers.pdf');
     }
 }

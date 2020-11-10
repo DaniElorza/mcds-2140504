@@ -26,16 +26,16 @@ class CategoryRequest extends FormRequest
         if ($this->method() == 'PUT') {
             //Edit Form
             return [
-                'name' => 'required',
+                'name' => 'required|unique:categories,name',
                 'description' => 'required',
-                'image' => 'max:1000',
+                'image' => 'max:1000'
             ];
         } else {
             //Create Form
             return [
-                'name' => 'required',
+                'name' => 'required|unique:categories,name',
                 'description' => 'required',
-                'image' => 'required|image|max:1000',
+                'image' => 'required|image|max:1000'
             ];
         }
     }
@@ -44,7 +44,7 @@ class CategoryRequest extends FormRequest
         return[
             'name.required' => 'El campo :attribute es obligatorio',
             'description.required' => 'El campo :attribute es obligatorio',
-            'image.required' => 'El campo :attribute es obligatorio',
+            'image.required' => 'El campo :attribute es obligatorio'
         ];
     }
 
@@ -52,7 +52,7 @@ class CategoryRequest extends FormRequest
         return [
             'name' => 'Nombre Categoría',
             'description' => 'Descripción',
-            'image' => 'Imagen',
+            'image' => 'Imagen'
         ];
     }
 }

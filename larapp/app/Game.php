@@ -12,8 +12,8 @@ class Game extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'image', 
+        'name',
+        'image',
         'description',
         'user_id',
         'category_id',
@@ -26,7 +26,7 @@ class Game extends Model
     }
 
     public function category(){
-        return $this->belongsTo('Category');
+        return $this->belongsTo('App\Category');
     }
 }
 

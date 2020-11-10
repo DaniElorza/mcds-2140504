@@ -55,6 +55,9 @@ Route::resources([
     'games'        => 'GameController',
 ]) ;
 
+// Exports PDF
+Route::get('generate/pdf/users', 'UserController@pdf');
+
 
 // Middlewre
 Route::get('locale/{locale}', 'LocaleController@index');

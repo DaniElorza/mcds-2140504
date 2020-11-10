@@ -27,13 +27,16 @@
                             <td>{{ $category->description }}</td>
 							<td><img src="{{ asset($category->image) }}" width="36px"></td>
 							<td>
-								<a href="{{ url('categories/'.$category->id) }}" class="btn btn-sm btn-light">
+								<a href="{{ url('categories/'.$category->id) }}" class=
+                                    "btn btn-sm btn-light">
                                     <i class="fa fa-search"></i>
                                 </a>
-								<a href="{{ url('categories/'.$category->id.'/edit') }}" class="btn btn-sm btn-light">
+								<a href="{{ url('categories/'.$category->id.'/edit') }}" class=
+                                    "btn btn-sm btn-light">
                                     <i class="fa fa-pen"></i>
                                 </a>
-                                <form action="{{ url('categories/'.$category->id) }}" method="POST" class="d-inline">
+                                <form action="{{ url('categories/'.$category->id) }}" method="POST"
+                                    class="d-inline">
 								    @csrf
                                     @method('delete')
                                     <button type="button" class="btn btn-sm btn-danger btn-delete">

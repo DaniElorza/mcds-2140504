@@ -57,7 +57,8 @@
                         @for ($i=1; $i <=100 ; $i++)
                             @if ($i % 10 == 0)
                                 @if($i == 50)
-                                    <li class="page-item active"><a class="page-link" href="#">{{$i}}</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">{{$i}}
+                                    </a></li>
                                 @else
                                     <li class="page-item"><a class="page-link" href="#">{{$i}}</a></li>
                                 @endif

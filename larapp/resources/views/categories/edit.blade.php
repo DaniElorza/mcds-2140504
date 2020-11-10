@@ -41,7 +41,8 @@
                 </div>
             @endif -->
 
-            <form method="POST" action="{{ url('categories/'.$category->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url('categories/'.$category->id) }}" enctype=
+                "multipart/form-data">
                 @csrf
 
                 @method('PUT')
@@ -60,8 +61,8 @@
 
                 <div class="form-group">
                     <textarea id="description" type="text" rows="3" class="form-control @error('description')
-                        is-invalid @enderror" name="description">{{ old('description', $category->description) }}
-                    </textarea>
+                        is-invalid @enderror" name="description">
+                        {{ old('description', $category->description) }}</textarea>
 
                     @error('description')
                         <span class="invalid-feedback" role="alert">
