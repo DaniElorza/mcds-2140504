@@ -146,4 +146,9 @@ class UserController extends Controller
         \Excel::import(new UserImport, $file);
         return redirect()->back()->with('message', 'Usuarios importados con éxito!');
     }
+
+    public function search(Request $request) {
+        $users = User::names($request->q)->orderBy('id','ASC')->paginate(20);
+        return view('users.search')->with('users', $users);
+    }
 }
