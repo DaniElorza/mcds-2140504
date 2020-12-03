@@ -57,9 +57,9 @@
                     <th>Género:</th>
                     <td>
                         @if ($user->gender == 'Female')
-                            Mujer <i class="fa fa-venus"></i>
+                            Mujer <i class="fas fa-venus"></i>
                         @else
-                            Hombre <i class="fa fa-mars"></i>
+                            Hombre <i class="fas fa-mars"></i>
                         @endif
                     </td>
                 </tr>
@@ -75,9 +75,11 @@
                     <th>Rol:</th>
                     <td>
                         @if ($user->role == 'Admin')
-                            <i class="fa fa-user-ninja"></i> Administrador
+                            <i class="fas fa-user-ninja"></i> Administrador
+                        @elseif ($user->role == 'Editor')
+                            <i class="fas fa-user-edit"></i> Editor
                         @else
-                            <i class="fa fa-user"></i> Cliente
+                            <i class="fas fa-user"></i> Cliente
                         @endif
                     </td>
                 </tr>
@@ -90,7 +92,7 @@
                             </button>
                         @else
                             <button class="btn btn-danger">
-                                <i class="fa fa-skull-crossbones"></i> Inactivo
+                                <i class="fas fa-skull-crossbones"></i> Inactivo
                             </button>
                         @endif
                     </td>

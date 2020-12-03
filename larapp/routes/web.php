@@ -14,9 +14,13 @@ use \Carbon\Carbon;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@welcome');
+
+// Dashboard Customer
+Route::put('customer/{id}', 'UserController@customerupd');
+// Dashboard Editor
+Route::get('editor/info', 'UserController@editorinfo');
+Route::get('editor/games', 'GameController@editorgames');
 
 /*Route::get('helloworld', function () {
     return "<h1>Hello World<h1>";

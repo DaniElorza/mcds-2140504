@@ -160,7 +160,7 @@ class GameController extends Controller
     }
 
     public function search(Request $request) {
-        $games = Game::names($request->q)->orderBy('id','ASC')->paginate(2);
+        $games = Game::names($request->q)->orderBy('id','ASC')->paginate(10);
         return view('games.search')->with('games', $games);
     }
 }

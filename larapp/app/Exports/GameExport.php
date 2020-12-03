@@ -21,12 +21,11 @@ class GameExport implements FromView, WithColumnWidths, WithStyles
     public function columnWidths(): array
     {
         return [
-            'A' => 5,
-            'B' => 20,
-            'C' => 32,
-            'D' => 15,
-            'E' => 16,
-            'F' => 6,
+            'A' => 2,
+            'B' => 30,
+            'C' => 15,
+            'D' => 16,
+            'E' => 6,
         ];
     }
 

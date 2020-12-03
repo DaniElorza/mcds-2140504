@@ -28,43 +28,45 @@
                 <i class="fa fa-file-excel"></i>
                 Exportar Excel
             </a>
-            <input type="hidden" id="tmodel" value="users">
+            <input type="hidden" id="tmodel" value="games">
             <input type="text" id="qsearch" name="qsearch" class="form-search" autocomplete="off" placeholder="Buscar...">
                 <br>
                 <div class="loader d-none text-center mt-5">
                     <img src="{{ asset('imgs/loader.gif') }}" width="100px">
                 </div>
             <br><br>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th class="d-none d-sm-table-cell">Categoría</th>
-                        <th>Imagen</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($games as $game)
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
                         <tr>
-                            <td>{{ $game->name }}</td>
-                            <td class="d-none d-sm-table-cell">
-                                <img src="{{ asset($game->category->image) }}" width="36px">
-                            </td>
-                            <td><img src="{{ asset($game->image) }}" width="36px"></td>
-                            <td>
-                                <a href="{{ url('games/'.$game->id) }}" class="btn btn-sm btn-light"><i class="fa fa-search"></i></a>
-                                <a href="{{ url('games/'.$game->id.'/edit') }}" class="btn btn-sm btn-light"><i class="fa fa-pen"></i></a>
-                                <form action="{{ url('games/'.$game->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="button" class="btn btn-sm btn-danger btn-delete"><i class="fa fa-trash"></i></button>
-                                </form>
-                            </td>
+                            <th>Nombre</th>
+                            <th class="d-none d-sm-table-cell">Categoría</th>
+                            <th>Imagen</th>
+                            <th>Acciones</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="content">
+                        @foreach ($games as $game)
+                            <tr>
+                                <td>{{ $game->name }}</td>
+                                <td class="d-none d-sm-table-cell">
+                                    <img src="{{ asset($game->category->image) }}" width="36px">
+                                </td>
+                                <td><img src="{{ asset($game->image) }}" width="36px"></td>
+                                <td>
+                                    <a href="{{ url('games/'.$game->id) }}" class="btn btn-sm btn-light"><i class="fa fa-search"></i></a>
+                                    <a href="{{ url('games/'.$game->id.'/edit') }}" class="btn btn-sm btn-light"><i class="fa fa-pen"></i></a>
+                                    <form action="{{ url('games/'.$game->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="button" class="btn btn-sm btn-danger btn-delete"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
             {{ $games->links() }}
         </div>
     </div>

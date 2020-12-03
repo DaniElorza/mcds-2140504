@@ -105,7 +105,7 @@
 
                     <div class="form-group">
                             <select name="slider" class="form-control @error('slider') is-invalid @enderror">
-                                <option value="">Seleccione Destacado...</option>
+                                <option value="">Seleccione Categoría...</option>
                                 <option value="1" @if (old('slider', $game->slider) == 1) selected @endif>Si</option>
                                 <option value="2" @if (old('slider', $game->slider) == 2) selected @endif>No</option>
                             </select>

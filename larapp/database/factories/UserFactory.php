@@ -37,7 +37,7 @@ $factory->define(User::class, function (Faker $faker) {
         'address'          => $faker->streetAddress(),
         'photo'             => substr($photo, 7),
         'email_verified_at' => now(),
-        'password'       => bcrypt('editor'),
+        'password'       => bcrypt('customer'),
         'remember_token'    => Str::random(2),
     ];
 });

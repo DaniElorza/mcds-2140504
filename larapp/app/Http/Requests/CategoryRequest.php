@@ -26,7 +26,7 @@ class CategoryRequest extends FormRequest
         if ($this->method() == 'PUT') {
             //Edit Form
             return [
-                'name' => 'required|unique:categories,name',
+                'name' => 'required',
                 'description' => 'required',
                 'image' => 'max:1000'
             ];

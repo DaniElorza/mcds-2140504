@@ -31,9 +31,9 @@ class UserSeeder extends Seeder
         $usr->birthdate = '1969-09-10';
         $usr->gender    = 'Male';
         $usr->address   = 'Aveniu Siempre Viva';
-        $usr->password  = bcrypt('customer');
+        $usr->role      = 'Editor';
+        $usr->password  = bcrypt('editor');
         $usr->save();
-
 
         // Factory
         factory(User::class, 10)->create();

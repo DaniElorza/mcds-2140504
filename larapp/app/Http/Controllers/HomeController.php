@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
+use App\Game;
+use App\Category;
+use DB;
 
 class HomeController extends Controller
 {
@@ -14,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'welcome']);
     }
 
     /**
@@ -30,7 +34,18 @@ class HomeController extends Controller
         else if(Auth::user()->role == 'Editor'){
             return view('dashboard-editor');
         } else {
-            return view('dashboard-customer');
+            $user = User::find(Auth::user()->id);
+            return view('dashboard-customer')->with('user', $user);
         }
+    }
+
+    public function welcome() {
+        $sliders = Game::where('slider', 1)->get();
+        $categories = Category::all();
+        $games = Game::all();
+
+        return view('welcome')->with('sliders', $sliders)
+                              ->with('categories', $categories)
+                              ->with('games', $games);
     }
 }

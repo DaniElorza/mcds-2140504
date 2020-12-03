@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Game;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Illuminate\Support\Facades\Hash;
 
 class GameImport implements ToModel
 {
